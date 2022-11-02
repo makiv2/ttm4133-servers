@@ -11,11 +11,28 @@ export default async function postData(
   axiosLink,
   axiosLinkImage
 ) {
-  await axios.post(`${baseUrl}${axiosLink}`, {
-    data: coords,
-  });
+  const responseCoords = await axios
+    .post(`${baseUrl}${axiosLink}`, {
+      data: coords,
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {;
+      return error.message;
+    });
+;
 
-  await axios.post(`${baseUrl}${axiosLinkImage}`, {
-    data: image,
-  });
+  const responseImage = await axios
+    .post(`${baseUrl}${axiosLinkImage}`, {
+      data: image,
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return error.message;
+    });
+
+  return [responseCoords, responseImage];
 }
