@@ -2,193 +2,140 @@ import React, { useContext, useEffect, useState } from "react";
 import AddContext from "../context/AddContext";
 import ClickContext from "../context/ClickContext";
 import useImage from "use-image";
-import {
-    Circle,
-    Image,
-    Group,
-    Text,
-  } from "react-konva";
 import uePicture from "../assets/sz_mobile-phone.png";
 import buildingPicture from "../assets/sz_house.png";
 import enbPicture from "../assets/sz_enb.png";
-
+import GroupObject from "../components/enbObject/enbObject";
+import HouseObject from "../components/houseObject/houseObject";
+import UeObject from "../components/ueObject/ueObject";
+import MobileUeObject from "../components/mobileUeObject/mobileUeObject";
+import mobileUe1 from "../assets/mobileUE/mobileUE1.png";
+import mobileUe2 from "../assets/mobileUE/mobileUE2.png";
+import mobileUe3 from "../assets/mobileUE/mobileUE3.png";
+import mobileUe4 from "../assets/mobileUE/mobileUE4.png";
+import mobileUe5 from "../assets/mobileUE/mobileUE5.png";
 
 
 const useAddItem = () => {
-  const [ueList, setueList, 
-    eNBList, seteNBList, 
-    buildingList, setbuildingList, 
-    ueListRefs, setueListRefs, 
-    eNBListRefs, seteNBListRefs, 
-    buildingListRefs, setbuildingListRefs,
-    radiusRefs, setRadiusRefs,
-    radius, setRadius] = useContext(AddContext)
-    const [clickUe, setClickUe, clickeNB, setClickeNB, clickBuilding, setClickBuilding] = useContext(ClickContext);
+  const {
+    ueList,
+    setueList,
+    eNBList,
+    seteNBList,
+    buildingList,
+    setbuildingList,
+    ueListRefs,
+    setueListRefs,
+    eNBListRefs,
+    seteNBListRefs,
+    buildingListRefs,
+    setbuildingListRefs,
+    radiusRefs,
+    setRadiusRefs,
+    radius,
+    setRadius,
+    mobileUeList,
+    setmobileUeList,
+    mobileUeListRefs,
+    setmobileUeListRefs,
+  } = useContext(AddContext);
+  const [
+    clickUe,
+    setClickUe,
+    clickeNB,
+    setClickeNB,
+    clickBuilding,
+    setClickBuilding,
+    clickMobileUe,
+    setClickMobileUe,
+  ] = useContext(ClickContext);
 
   const [ue] = useImage(uePicture);
   const [eNB] = useImage(enbPicture);
   const [building] = useImage(buildingPicture);
+  const [pictureIndex, setPictureIndex] = useState(0);
+  
+  const [mUe1] = useImage(mobileUe1);
+  const [mUe2] = useImage(mobileUe2);
+  const [mUe3] = useImage(mobileUe3);
+  const [mUe4] = useImage(mobileUe4);
+  const [mUe5] = useImage(mobileUe5);
 
 
-    useEffect(() => {
-      if(clickUe) {
-        setueList([
-          ...ueList,
-          <UeObject
+
+  useEffect(() => {
+    if (clickUe) {
+      // const ueObject = {
+      //   ue,
+      //   ueListRefs,
+      //   setueListRefs
+      // };
+      setueList([
+        ...ueList,
+        //ueObject
+        <UeObject
           ue={ue}
           ueListRefs={ueListRefs}
-          setueListRefs={setueListRefs}/>
-        ]);
-        setClickUe(false);
-      }
+          setueListRefs={setueListRefs}
+        />,
+      ]);
+      setClickUe(false);
+    }
 
-
-      if(clickeNB) {
-        seteNBList([
-          ...eNBList,
-          <GroupObject
+    if (clickeNB) {
+      seteNBList([
+        ...eNBList,
+        <GroupObject
           radius={radius}
           radiusRefs={radiusRefs}
           setRadiusRefs={setRadiusRefs}
           seteNBListRefs={seteNBListRefs}
           eNBListRefs={eNBListRefs}
           eNB={eNB}
-          /> ,
-        ]);
-        setClickeNB(false);
-      }
+        />,
+      ]);
+      setClickeNB(false);
+    }
 
-      if(clickBuilding) {
-        setbuildingList([
-          ...buildingList,
-          <HouseObject
+    if (clickBuilding) {
+      setbuildingList([
+        ...buildingList,
+        <HouseObject
           building={building}
           setbuildingListRefs={setbuildingListRefs}
-          buildingListRefs={buildingListRefs}/>,
-        ]);
+          buildingListRefs={buildingListRefs}
+        />,
+      ]);
 
-        setClickBuilding(false);
-      }
-    }, [clickUe, clickeNB, clickBuilding])
-}
+      setClickBuilding(false);
+    }
 
-function GroupObject ({radius, radiusRefs, setRadiusRefs, seteNBListRefs, eNBListRefs, eNB}) {
+    if (clickMobileUe) {
+      if (pictureIndex === 5)
+        return
 
-  const [xCoord, setXCoord] = useState(50);
-  const [yCoord, setYCoord] = useState(50);
-
-  return (
-    <Group draggable
-          onDragEnd={(e) => {
-
-                setXCoord(e.target._lastPos.x)
-                setYCoord(e.target._lastPos.y)
-          }}>
-            <Circle
-              listening={false}
-              radius={radius}
-              stroke="black"
-              strokeWidth={2}
-              x={72}
-              y={78}
-              ref={(node) => {
-                setRadiusRefs([...radiusRefs, node]);
-              }}
-            />
-            <Image
-              image={eNB}
-              x={50}
-              y={50}
-              ref= {(node) => {
-                seteNBListRefs([...eNBListRefs, node]);
-              }}
-            />
-      <TextObject
-      xCoord={xCoord}
-      yCoord={yCoord}
-        />
-          </Group>
-  )
-}
+      const pictures = [mUe1, mUe2, mUe3, mUe4, mUe5];
+      console.log(pictures[pictureIndex]);
+      setmobileUeList([
+        ...mobileUeList,
+        <MobileUeObject
+          cross={pictures[pictureIndex]}   
+          mobileUeListRefs={mobileUeListRefs}
+          setmobileUeListRefs={setmobileUeListRefs}
+        />,
+      ]);
+      setPictureIndex(pictureIndex + 1);
 
 
-function UeObject ({ue, ueListRefs, setueListRefs}) {
-
-
-  const [xCoord, setXCoord] = useState(50);
-  const [yCoord, setYCoord] = useState(50);
-
-  return (      //MAKE GROUP ADD TEXT
-  <Group draggable
-  onDragEnd={(e) => {
-
-    setXCoord(e.target._lastPos.x)
-    setYCoord(e.target._lastPos.y)
-  }} > 
-
-  <Image
-    image={ue}
-    x={50}
-    y={50}
-
-    ref={(node) => {
-      setueListRefs([...ueListRefs, node]);
-    }}
-  />
-  <TextObject
-  xCoord={xCoord}
-  yCoord={yCoord}
-  />
-  </Group>
-  )
-
-}
-
-function HouseObject ({building, setbuildingListRefs, buildingListRefs}) {
-
-  const [xCoord, setXCoord] = useState(50);
-  const [yCoord, setYCoord] = useState(50);
-
-  return (
-  <Group
-  draggable
-  onDragEnd={(e) => {
-
-    setXCoord(e.target._lastPos.x)
-    setYCoord(e.target._lastPos.y)
-  }}>
-
-  <Image
-    image={building}
-    x={50}
-    y={50}
-    ref={(node) => {
-      setbuildingListRefs([...buildingListRefs, node]);
-    }}
-  />
-  
-  <TextObject
-  xCoord={xCoord}
-  yCoord={yCoord}
-  />
-
-  </Group>)
-
-}
-
-function TextObject ({xCoord,yCoord}){
+      setClickMobileUe(false);
+    }
 
 
 
-  return(
-    <Text
-    align="center"
-    x={35}
-    y={105} 
-    text={`(${Math.round(xCoord)},${Math.round(yCoord)})`}
-    fontSize={20}
-    fontStyle="bold" />
-  )
-} 
 
-export { useAddItem }
+  }, [clickUe, clickeNB, clickBuilding, clickMobileUe]);
+};
+
+
+
+export { useAddItem };
