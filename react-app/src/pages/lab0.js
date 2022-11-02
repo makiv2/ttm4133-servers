@@ -34,6 +34,7 @@ export default function Defaultlab() {
     radius,
     setRadius,
     mobileUeList,
+    mobileUeListRefs,
   } = useContext(AddContext);
   const [
     clickUe,
@@ -85,7 +86,6 @@ export default function Defaultlab() {
         name="Add building"
         onClick={() => setClickBuilding(true)}
       />
-      {/* <ButtonComponent name="Add Mobile UE" onClick={useAddBuildingItem}/> */}
       <ButtonComponent name="Clear" onClick={clearItems} />
       <ButtonComponent name="Default Topology" onClick={testFunction} />
 
@@ -125,6 +125,7 @@ export default function Defaultlab() {
                 eNBListRefs={eNBListRefs}
                 buildingListRefs={buildingListRefs}
                 ueListRefs={ueListRefs}
+                mobileUeListRefs={mobileUeListRefs}
               />
             </div>
           </div>

@@ -106,26 +106,25 @@ const useAddItem = () => {
           buildingListRefs={buildingListRefs}
         />,
       ]);
-
+      console.log(buildingList);
       setClickBuilding(false);
     }
 
     if (clickMobileUe) {
       if (pictureIndex === 5)
         return
-
       const pictures = [mUe1, mUe2, mUe3, mUe4, mUe5];
-      console.log(pictures[pictureIndex]);
+
       setmobileUeList([
         ...mobileUeList,
         <MobileUeObject
-          cross={pictures[pictureIndex]}   
+          image={pictures[pictureIndex]}
           mobileUeListRefs={mobileUeListRefs}
           setmobileUeListRefs={setmobileUeListRefs}
         />,
       ]);
       setPictureIndex(pictureIndex + 1);
-
+      console.log(mobileUeList)
 
       setClickMobileUe(false);
     }

@@ -3,7 +3,7 @@ import { Circle, Image, Group, Text } from "react-konva";
 import TextObject from "../textObject/textObject";
 
 export default function MobileUeObject({
-  cross,
+  image,
   //mobileUe,
   //mobileUe1,
   // mobileUe2,
@@ -12,6 +12,8 @@ export default function MobileUeObject({
 }) {
   const [xCoord, setXCoord] = useState(50);
   const [yCoord, setYCoord] = useState(50);
+
+  console.log(mobileUeListRefs);
 
   return (
     <Group
@@ -22,7 +24,7 @@ export default function MobileUeObject({
       }}
     >
       <Image
-        image={cross}
+        image={image}
         x={50}
         y={50}
         ref={(node) => {

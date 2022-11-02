@@ -10,6 +10,8 @@ export default function HouseObject({
   const [xCoord, setXCoord] = useState(50);
   const [yCoord, setYCoord] = useState(50);
 
+  console.log(buildingListRefs);
+
   return (
     <Group
       draggable
