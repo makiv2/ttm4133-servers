@@ -89,14 +89,6 @@ export default function Defaultlab() {
           </div>
 
           <div className="col-5 justify-content-start">
-            <ButtonComponent
-              name="Add mobile UE path"
-              onClick={() => setClickMobileUe(true)}
-            />
-            <ButtonComponent
-              name="Add building"
-              onClick={() => setClickBuilding(true)}
-            />
           </div>
           <div className="col-2" />
         </div>
