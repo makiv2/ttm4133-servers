@@ -12,6 +12,7 @@ import UeObject from "../components/ueObject/ueObject";
 
 import "../App.css";
 import StageGroup from "../components/stage/stage";
+import EssentialButtons from "../components/inputs/essentialButtons";
 
 export default function Defaultlab() {
   const [name, setName] = useState("");
@@ -62,7 +63,7 @@ export default function Defaultlab() {
       node.setRadius(e.target.value * 5);
     });
 
-    setTxPower(e.target.value); //todo
+    setTxPower(e.target.value); //todo\
   };
 
   const testFunction = () => {
@@ -71,32 +72,101 @@ export default function Defaultlab() {
   //scale on layer
   return (
     <div>
-      <StageGroup
-        ueList={ueList}
-        eNBList={eNBList}
-        buildingList={buildingList}
-        mobileUeList={mobileUeList}
-        stageRef={stageRef}
-      />
+      <div className="border border-secondary rounded">
+        <StageGroup
+          ueList={ueList}
+          eNBList={eNBList}
+          buildingList={buildingList}
+          mobileUeList={mobileUeList}
+          stageRef={stageRef}
+        />
+      </div>
 
-      <ButtonComponent name="Add UE" onClick={() => setClickUe(true)} />
-      <ButtonComponent name="Add mobile UE path" onClick={() => setClickMobileUe(true)} />
-      <ButtonComponent name="Add eNB" onClick={() => setClickeNB(true)} />
-      <ButtonComponent
-        name="Add building"
-        onClick={() => setClickBuilding(true)}
-      />
-      <ButtonComponent name="Clear" onClick={clearItems} />
-      <ButtonComponent name="Default Topology" onClick={testFunction} />
+      <div className="container-fluid">
+        <div className="row  d-flex">
+          <div className="col-5 d-flex justify-content-end">
+            <EssentialButtons /> {/* Buttons for adding items, Ue, eNB clear */}
+          </div>
 
-      <Form.Label>TxPower: </Form.Label>
+          <div className="col-5 justify-content-start">
+            <ButtonComponent
+              name="Add mobile UE path"
+              onClick={() => setClickMobileUe(true)}
+            />
+            <ButtonComponent
+              name="Add building"
+              onClick={() => setClickBuilding(true)}
+            />
+          </div>
+          <div className="col-2" />
+        </div>
 
+        <div className="row d-flex">
+          <div className="col-5 d-flex justify-content-end">
+            <Form>
+              <Form.Group controlId="formBasicRange">
+                <Form.Label>TxPower: {radius} dBm</Form.Label>
+                <Form.Control
+                  type="range"
+                  min="15"
+                  max="45"
+                  step="1"
+                  onChange={updateRadius}
+                />
+              </Form.Group>
+              <Form.Text className="text-muted">
+                Values between 15 to 45 dBm are accepted.
+              </Form.Text>
+            </Form>
+          </div>
+          <div className="col-2">
+            <Form>
+              <Form.Label>Simulation Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter simulation name"
+                value={name}
+                className="form-control"
+                onChange={(event) => setName(event.target.value)}
+              />
+              <Form.Text className="text-muted">
+                Please enter a name for your simulation.
+              </Form.Text>
+            </Form>
+          </div>
+          <div className="col-5" />
+        </div>
+
+        <div className="row d-flex">
+          <div className="col-5"> 
+          
+            {/* eNB bandwidth ?*/}
+
+          </div>
+
+          <div className="col-2">
+            <SaveButton
+              axiosLink="/uploadCoords"
+              axiosLinkImage="/uploadImageBase64"
+              label="0"
+              name={name}
+              stageRef={stageRef}
+              eNBListRefs={eNBListRefs}
+              buildingListRefs={buildingListRefs}
+              ueListRefs={ueListRefs}
+              mobileUeListRefs={mobileUeListRefs}
+            />
+          </div>
+          <div className="col-5" />
+        </div>
+      </div>
+
+      {/* <Form.Label>TxPower: </Form.Label>
       <input value={radius} className="btn-custom" onChange={updateRadius} />
       <Form.Text className="text-muted">
         {" "}
         Values from 38 to 43 dBm are accepted.{" "}
       </Form.Text>
-
       <div className="container-fluid page-layout spaceTop">
         <div className="row">
           <div className="col-md-0"></div>
@@ -135,7 +205,7 @@ export default function Defaultlab() {
             later when you want to run it.
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
