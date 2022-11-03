@@ -56,7 +56,7 @@ const useAddItem = () => {
   const [eNB] = useImage(enbPicture);
   const [building] = useImage(buildingPicture);
   const [pictureIndex, setPictureIndex] = useState(0);
-  const [eNBIndex, seteNBIndex] = useImage(0);
+  const [eNBIndex, seteNBIndex] = useState(0);
 
   const [mUe1] = useImage(mobileUe1);
   const [mUe2] = useImage(mobileUe2);
