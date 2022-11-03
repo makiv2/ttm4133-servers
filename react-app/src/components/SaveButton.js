@@ -92,7 +92,8 @@ const SaveButton = ({ name, label, ueListRefs, eNBListRefs, buildingListRefs, mo
   //   return image;
   // };
 
-
+  console.log(label);
+  console.log('testingtesting')
 
 
 
@@ -103,8 +104,6 @@ const SaveButton = ({ name, label, ueListRefs, eNBListRefs, buildingListRefs, mo
     var image = tempData.finalImage;
 
 
-    console.log(coordsJson);
-    console.log(image);
 
     var response = await postData(coordsJson, image, axiosLink, axiosLinkImage);
     

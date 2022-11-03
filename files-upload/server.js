@@ -32,6 +32,8 @@ app.post("/uploadCoords", (req, res) => {
   //}
   //
 
+  console.log(data);
+
   
   let lab = parseInt(data.label);          //which lab the topology comes from as a int
   let newData = data.coordsJson;           //the coordsJson object
@@ -73,6 +75,7 @@ app.post("/uploadImageBase64", (req, res) => {
   let data = req.body.data.imageString;     //the image string file that is handled in the pythoninit
   let lab = parseInt(req.body.data.label);          //which lab the topology comes from as a int
   let simName = req.body.data.name
+
 
   fs.writeFile(`Images/Lab${lab.toString()}/base64Image-${simName}.txt`, data, (error) => {
     if (error)

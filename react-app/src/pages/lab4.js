@@ -148,7 +148,7 @@ export default function Defaultlab() {
             <SaveButton
               axiosLink="/uploadCoords"
               axiosLinkImage="/uploadImageBase64"
-              label="0"
+              label="4"
               name={name}
               stageRef={stageRef}
               eNBListRefs={eNBListRefs}
