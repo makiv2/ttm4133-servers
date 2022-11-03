@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { Stage, Layer } from "react-konva";
-import AddContext from "../../context/AddContext";
 
-var width = window.innerWidth * 1;
+import { Stage, Layer } from "react-konva";
+
+var width = window.innerWidth * 0.99;
 var heigth = window.innerHeight * 0.7;
 export default function StageGroup({
   ueList,

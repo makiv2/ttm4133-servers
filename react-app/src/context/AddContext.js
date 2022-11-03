@@ -13,6 +13,7 @@ export const AddProvider = ({ children }) => {
   const [buildingListRefs, setbuildingListRefs] = useState([]);
   const [radiusRefs, setRadiusRefs] = useState([]);
   const [radius, setRadius] = useState(0);
+  const [eNBfieldList, seteNBfieldList] = useState([]);
 
   return (
     <AddContext.Provider
@@ -37,6 +38,8 @@ export const AddProvider = ({ children }) => {
         setRadiusRefs,
         radius,
         setRadius,
+        eNBfieldList,
+        seteNBfieldList,
       }}
     >
       {children}

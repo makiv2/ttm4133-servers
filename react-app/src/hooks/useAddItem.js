@@ -14,7 +14,7 @@ import mobileUe2 from "../assets/mobileUE/mobileUE2.png";
 import mobileUe3 from "../assets/mobileUE/mobileUE3.png";
 import mobileUe4 from "../assets/mobileUE/mobileUE4.png";
 import mobileUe5 from "../assets/mobileUE/mobileUE5.png";
-
+import Form from "react-bootstrap/Form";
 
 const useAddItem = () => {
   const {
@@ -38,6 +38,8 @@ const useAddItem = () => {
     setmobileUeList,
     mobileUeListRefs,
     setmobileUeListRefs,
+    eNBfieldList,
+    seteNBfieldList,
   } = useContext(AddContext);
   const [
     clickUe,
@@ -54,14 +56,13 @@ const useAddItem = () => {
   const [eNB] = useImage(enbPicture);
   const [building] = useImage(buildingPicture);
   const [pictureIndex, setPictureIndex] = useState(0);
-  
+  const [eNBIndex, seteNBIndex] = useImage(0);
+
   const [mUe1] = useImage(mobileUe1);
   const [mUe2] = useImage(mobileUe2);
   const [mUe3] = useImage(mobileUe3);
   const [mUe4] = useImage(mobileUe4);
   const [mUe5] = useImage(mobileUe5);
-
-
 
   useEffect(() => {
     if (clickUe) {
@@ -94,6 +95,23 @@ const useAddItem = () => {
           eNB={eNB}
         />,
       ]);
+
+      seteNBfieldList([
+        ...eNBfieldList,
+        <Form>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Bandwidth</Form.Label>
+            <Form.Control type="text" placeholder="Enter Bandwidth" />
+            <Form.Text className="text-muted">
+              Enter bandwidth of the {eNBIndex}th eNB
+            </Form.Text>
+          </Form.Group>
+        </Form>,
+      ]);
+
+      seteNBIndex(eNBIndex + 1);
+
+
       setClickeNB(false);
     }
 
@@ -111,8 +129,7 @@ const useAddItem = () => {
     }
 
     if (clickMobileUe) {
-      if (pictureIndex === 5)
-        return
+      if (pictureIndex === 5) return;
       const pictures = [mUe1, mUe2, mUe3, mUe4, mUe5];
 
       setmobileUeList([
@@ -125,16 +142,9 @@ const useAddItem = () => {
       ]);
       setPictureIndex(pictureIndex + 1);
 
-
       setClickMobileUe(false);
     }
-
-
-
-
   }, [clickUe, clickeNB, clickBuilding, clickMobileUe]);
 };
-
-
 
 export { useAddItem };
