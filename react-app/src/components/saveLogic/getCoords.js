@@ -49,8 +49,6 @@ export default function getCoords(
     json.mobileUeList.push({ x: x, y: y });
   });
 
-  console.log(json);
-  
   return json;
 }
 

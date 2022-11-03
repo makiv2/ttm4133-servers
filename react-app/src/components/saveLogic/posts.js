@@ -11,6 +11,10 @@ export default async function postData(
   axiosLink,
   axiosLinkImage
 ) {
+
+ // console.log('image: ', image);
+
+
   const responseCoords = await axios
     .post(`${baseUrl}${axiosLink}`, {
       data: coords,

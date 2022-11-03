@@ -106,7 +106,7 @@ const useAddItem = () => {
           buildingListRefs={buildingListRefs}
         />,
       ]);
-      console.log(buildingList);
+
       setClickBuilding(false);
     }
 
@@ -124,7 +124,7 @@ const useAddItem = () => {
         />,
       ]);
       setPictureIndex(pictureIndex + 1);
-      console.log(mobileUeList)
+
 
       setClickMobileUe(false);
     }

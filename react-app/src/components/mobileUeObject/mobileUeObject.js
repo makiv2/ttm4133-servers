@@ -13,7 +13,7 @@ export default function MobileUeObject({
   const [xCoord, setXCoord] = useState(50);
   const [yCoord, setYCoord] = useState(50);
 
-  console.log(mobileUeListRefs);
+
 
   return (
     <Group

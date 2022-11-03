@@ -9,6 +9,8 @@ export default async function formatData(name, ueListRefs, eNBListRefs, building
 
 
   let coordsJson = getCoords(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs);
+
+
   if (coordsJson === false) {
     return
   }
@@ -17,10 +19,10 @@ export default async function formatData(name, ueListRefs, eNBListRefs, building
 
   let imageString = image.src;
   
-  let finalCoords = { coordsJson, label, name }
+  let finalCoords = { coordsJson , label, name } 
   
   let finalImage = { imageString, label, name }
   
-  return {finalCoords, finalImage}
+  return {finalCoords, finalImage};
     
 }
