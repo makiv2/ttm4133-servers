@@ -14,7 +14,7 @@ const baseIpArray = tempArray[1].split('/')
 const baseUrl = `http://${baseIpArray[2]}:3002`
 
 
-const SaveButton = ({ name, label, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, axiosLink, axiosLinkImage }) => {
+const SaveButton = ({ name, label, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, axiosLink, axiosLinkImage , txPower }) => {
 
   // const getCoords = () => {
 
@@ -97,7 +97,7 @@ const SaveButton = ({ name, label, ueListRefs, eNBListRefs, buildingListRefs, mo
 
 
   const saveCoords = async () => {
-    var tempData = await formatData(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, label);
+    var tempData = await formatData(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, label, txPower);
 
     var coordsJson= tempData.finalCoords;
     var image = tempData.finalImage;

@@ -3,7 +3,8 @@ export default function getCoords(
   ueListRefs,
   eNBListRefs,
   buildingListRefs,
-  mobileUeListRefs
+  mobileUeListRefs,
+  txPower,
 ) {
   var json = {
     name: name,
@@ -11,6 +12,7 @@ export default function getCoords(
     eNBList: [],
     buildingList: [],
     mobileUeList: [],
+    txPower: txPower,
   };
 
 

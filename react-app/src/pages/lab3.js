@@ -151,6 +151,7 @@ export default function Defaultlab() {
               buildingListRefs={buildingListRefs}
               ueListRefs={ueListRefs}
               mobileUeListRefs={mobileUeListRefs}
+              txPower={txPower}
             />
           </div>
           <div className="col-5" />
