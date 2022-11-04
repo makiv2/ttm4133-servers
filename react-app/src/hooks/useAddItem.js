@@ -9,11 +9,10 @@ import GroupObject from "../components/enbObject/enbObject";
 import HouseObject from "../components/houseObject/houseObject";
 import UeObject from "../components/ueObject/ueObject";
 import MobileUeObject from "../components/mobileUeObject/mobileUeObject";
-import mobileUe1 from "../assets/mobileUE/mobileUE1.png";
-import mobileUe2 from "../assets/mobileUE/mobileUE2.png";
-import mobileUe3 from "../assets/mobileUE/mobileUE3.png";
-import mobileUe4 from "../assets/mobileUE/mobileUE4.png";
-import mobileUe5 from "../assets/mobileUE/mobileUE5.png";
+import mobileUe1 from "../assets/mobileUE/mobileUE.png";
+import mobileUe2 from "../assets/mobileUE/firstLocation.png";
+import mobileUe3 from "../assets/mobileUE/secondLocation.png";
+import mobileUe4 from "../assets/mobileUE/thirdLocation.png";
 import Form from "react-bootstrap/Form";
 
 const useAddItem = () => {
@@ -65,7 +64,6 @@ const useAddItem = () => {
   const [mUe2] = useImage(mobileUe2);
   const [mUe3] = useImage(mobileUe3);
   const [mUe4] = useImage(mobileUe4);
-  const [mUe5] = useImage(mobileUe5);
 
   useEffect(() => {
     if (clickUe) {
@@ -151,8 +149,8 @@ const useAddItem = () => {
     }
 
     if (clickMobileUe) {
-      if (pictureIndex === 5) return;
-      const pictures = [mUe1, mUe2, mUe3, mUe4, mUe5];
+      if (pictureIndex === 4) return;
+      const pictures = [mUe1, mUe2, mUe3, mUe4];
 
       setmobileUeList([
         ...mobileUeList,
