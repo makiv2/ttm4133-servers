@@ -1,14 +1,14 @@
 import getCoords from "./getCoords";
 import getImage from "./getImage";
 
-export default async function formatData(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, label, txPower) {
+export default async function formatData(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, label, txPower, bandwidthValues) {
   if (name === "") {
     alert("Please fill in name :D");
     return
   }
 
 
-  let coordsJson = getCoords(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, txPower);
+  let coordsJson = getCoords(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, txPower, label, bandwidthValues);
 
 
   if (coordsJson === false) {

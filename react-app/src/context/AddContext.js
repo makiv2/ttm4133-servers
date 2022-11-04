@@ -14,6 +14,7 @@ export const AddProvider = ({ children }) => {
   const [radiusRefs, setRadiusRefs] = useState([]);
   const [radius, setRadius] = useState(0);
   const [eNBfieldList, seteNBfieldList] = useState([]);
+  const [bandwidthValues, setbandwidthValues] = useState([]);       // Change to context thing
 
   return (
     <AddContext.Provider
@@ -40,6 +41,8 @@ export const AddProvider = ({ children }) => {
         setRadius,
         eNBfieldList,
         seteNBfieldList,
+        bandwidthValues,
+        setbandwidthValues,
       }}
     >
       {children}

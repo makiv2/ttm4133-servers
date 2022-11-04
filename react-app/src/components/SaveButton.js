@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import ButtonComponent from "./Button"
 import axios from "axios";
 
@@ -6,6 +6,7 @@ import getCoords from "./saveLogic/getCoords";
 import postData from "./saveLogic/posts";
 import getImage from "./saveLogic/getImage";
 import formatData from "./saveLogic/formatData";
+import AddContext from "../context/AddContext";
 
 
 const baseUrlFull = window.location.href
@@ -17,6 +18,8 @@ const baseUrl = `http://${baseIpArray[2]}:3002`
 const SaveButton = ({ name, label, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, axiosLink, axiosLinkImage , txPower }) => {
 
   // const getCoords = () => {
+
+  const { bandwidthValues } = useContext(AddContext);
 
   //   console.log(baseUrl);
   //   let coords = `SimName: ${name}`
@@ -92,13 +95,8 @@ const SaveButton = ({ name, label, ueListRefs, eNBListRefs, buildingListRefs, mo
   //   return image;
   // };
 
-  console.log(label);
-  console.log('testingtesting')
-
-
-
   const saveCoords = async () => {
-    var tempData = await formatData(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, label, txPower);
+    var tempData = await formatData(name, ueListRefs, eNBListRefs, buildingListRefs, mobileUeListRefs, stageRef, label, txPower, bandwidthValues);
 
     var coordsJson= tempData.finalCoords;
     var image = tempData.finalImage;

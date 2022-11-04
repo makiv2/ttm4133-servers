@@ -5,6 +5,8 @@ export default function getCoords(
   buildingListRefs,
   mobileUeListRefs,
   txPower,
+  label,
+  bandwidthValues
 ) {
   var json = {
     name: name,
@@ -13,8 +15,15 @@ export default function getCoords(
     buildingList: [],
     mobileUeList: [],
     txPower: txPower,
+    eNBBandwidthList: [],
   };
 
+  // Index of the forem i
+  if (label === "3" || label === "0") {
+    bandwidthValues.forEach((bandwidth) => {
+      json.eNBBandwidthList.push(bandwidth);
+      console.log(bandwidth);
+  })};
 
   let refNode = eNBListRefs[0];
 
@@ -44,7 +53,7 @@ export default function getCoords(
     json.buildingList.push({ x: x, y: y });
   });
 
-
+  
   mobileUeListRefs.map((node) => {
     let x = (node.getAbsolutePosition().x - xRef) * 5.5;
     let y = (node.getAbsolutePosition().y - yRef) * 5.5;

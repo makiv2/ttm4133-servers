@@ -40,6 +40,8 @@ const useAddItem = () => {
     setmobileUeListRefs,
     eNBfieldList,
     seteNBfieldList,
+    bandwidthValues,
+    setbandwidthValues,
   } = useContext(AddContext);
   const [
     clickUe,
@@ -57,6 +59,7 @@ const useAddItem = () => {
   const [building] = useImage(buildingPicture);
   const [pictureIndex, setPictureIndex] = useState(0);
   const [eNBIndex, seteNBIndex] = useState(0);
+
 
   const [mUe1] = useImage(mobileUe1);
   const [mUe2] = useImage(mobileUe2);
@@ -96,12 +99,31 @@ const useAddItem = () => {
         />,
       ]);
 
+      var temp = eNBIndex;
+
       seteNBfieldList([
         ...eNBfieldList,
         <Form>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Bandwidth</Form.Label>
-            <Form.Control type="text" placeholder="Enter Bandwidth" />
+            <Form.Control
+              type="text"
+              placeholder="Enter Bandwidth"
+              //value={bandwidthValues[temp]}
+              onChange={(event) => {
+
+              let items = bandwidthValues;
+              items[temp] = event.target.value;
+
+              console.log('changing item at index;', temp);
+              console.log('items: ', items);
+
+              setbandwidthValues(items);
+
+              console.log('done');
+
+            }}
+            />
             <Form.Text className="text-muted">
               Enter bandwidth of the {eNBIndex}th eNB
             </Form.Text>
@@ -111,7 +133,7 @@ const useAddItem = () => {
 
       seteNBIndex(eNBIndex + 1);
 
-
+      
       setClickeNB(false);
     }
 
