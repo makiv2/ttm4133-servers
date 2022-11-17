@@ -4,7 +4,7 @@ Description=A service to run react app for ttm4133 labs
 
 [Service]
 User=ubuntu
-WorkingDirectory=/home/ubuntu/repos/webapp-TTM4133/React-app/gui-app
+WorkingDirectory=/home/ubuntu/repos/webapp-TTM4133/react-app
 ExecStart=/bin/bash -c 'HOST=0.0.0.0 npm run start'
 Restart=always
 
