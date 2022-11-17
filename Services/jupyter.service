@@ -1,0 +1,13 @@
+[Unit]
+After=network.service
+
+[Service]
+ExecStart=/home/ubuntu/.local/bin/jupyter lab --ip 0.0.0.0 --port 9000 --no-browser --notebook-dir=/home/ubuntu/repos/sem-example/ttm4133-labs/ttm4133-notebooks
+User=ubuntu
+
+[Install]
+WantedBy=default.target
+
+
+
+
