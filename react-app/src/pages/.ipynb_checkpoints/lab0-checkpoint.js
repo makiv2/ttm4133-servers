@@ -72,6 +72,9 @@ export default function Defaultlab() {
   const testFunction = () => {
     console.log(name);
   };
+
+
+  console.log('inside lab0:', eNBfieldList);
   //scale on layer
   return (
     <div>
@@ -95,6 +98,10 @@ export default function Defaultlab() {
             <ButtonComponent
               name="Add mobile UE path"
               onClick={() => setClickMobileUe(true)}
+            />
+            <ButtonComponent
+              name="Add building"
+              onClick={() => setClickBuilding(true)}
             />
           </div>
           <div className="col-2" />
@@ -137,17 +144,13 @@ export default function Defaultlab() {
         </div>
 
         <div className="row d-flex">
-          <div className="col-5">
-            
-            {/* eNB bandwidth ?*/}
-            
-            </div>
+          <div className="col-5">{/* eNB bandwidth ?*/}</div>
 
           <div className="col-2">
             <SaveButton
               axiosLink="/uploadCoords"
               axiosLinkImage="/uploadImageBase64"
-              label="3"
+              label="0"
               name={name}
               stageRef={stageRef}
               eNBListRefs={eNBListRefs}
@@ -159,8 +162,13 @@ export default function Defaultlab() {
           </div>
           <div className="col-5" />
         </div>
+
         <div className="row d-flex">
-          <EnbBandwidthFields eNBfieldList={eNBfieldList} />
+
+        <EnbBandwidthFields
+        eNBfieldList={eNBfieldList} />
+
+
         </div>
       </div>
 
