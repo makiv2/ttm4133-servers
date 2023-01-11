@@ -13,7 +13,6 @@ import UeObject from "../components/ueObject/ueObject";
 import "../App.css";
 import StageGroup from "../components/stage/stage";
 import EssentialButtons from "../components/inputs/essentialButtons";
-import EnbBandwidthFields from "../components/inputs/enbBandwidthFields";
 
 export default function Defaultlab() {
   const [name, setName] = useState("");
@@ -37,8 +36,6 @@ export default function Defaultlab() {
     setRadius,
     mobileUeList,
     mobileUeListRefs,
-    eNBfieldList,
-    seteNBfieldList,
   } = useContext(AddContext);
   const [
     clickUe,
@@ -92,10 +89,6 @@ export default function Defaultlab() {
           </div>
 
           <div className="col-5 justify-content-start">
-            <ButtonComponent
-              name="Add mobile UE path"
-              onClick={() => setClickMobileUe(true)}
-            />
           </div>
           <div className="col-2" />
         </div>
@@ -137,17 +130,17 @@ export default function Defaultlab() {
         </div>
 
         <div className="row d-flex">
-          <div className="col-5">
-            
+          <div className="col-5"> 
+          
             {/* eNB bandwidth ?*/}
-            
-            </div>
+
+          </div>
 
           <div className="col-2">
             <SaveButton
               axiosLink="/uploadCoords"
               axiosLinkImage="/uploadImageBase64"
-              label="3"
+              label="1"
               name={name}
               stageRef={stageRef}
               eNBListRefs={eNBListRefs}
@@ -158,9 +151,6 @@ export default function Defaultlab() {
             />
           </div>
           <div className="col-5" />
-        </div>
-        <div className="row d-flex">
-          <EnbBandwidthFields eNBfieldList={eNBfieldList} />
         </div>
       </div>
 

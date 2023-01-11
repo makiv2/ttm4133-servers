@@ -9,10 +9,11 @@ const app = express();
 app.use(cors());
 app.use(fileupload());
 app.use(express.static("files"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
-
+app.use(express.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
 let fs = require('fs')
 
