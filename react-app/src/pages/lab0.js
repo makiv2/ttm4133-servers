@@ -162,14 +162,6 @@ export default function Defaultlab() {
           </div>
           <div className="col-5" />
         </div>
-
-        <div className="row d-flex">
-
-        <EnbBandwidthFields
-        eNBfieldList={eNBfieldList} />
-
-
-        </div>
       </div>
 
       {/* <Form.Label>TxPower: </Form.Label>
