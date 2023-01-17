@@ -104,8 +104,11 @@ const SaveButton = ({ name, label, ueListRefs, eNBListRefs, buildingListRefs, mo
 
 
     var response = await postData(coordsJson, image, axiosLink, axiosLinkImage);
+
+    console.log(response[1].data.message);
+
     
-    alert(response[0], response[1]);
+    alert(response[0].data.message);
 
   //   await axios.post(`${baseUrl}${axiosLink}`, {
 

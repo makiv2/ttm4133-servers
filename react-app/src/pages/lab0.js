@@ -66,15 +66,10 @@ export default function Defaultlab() {
       node.setRadius(e.target.value * 5);
     });
 
-    setTxPower(e.target.value); //todo\
-  };
-
-  const testFunction = () => {
-    console.log(name);
+    setTxPower(e.target.value); //todo\ 
   };
 
 
-  console.log('inside lab0:', eNBfieldList);
   //scale on layer
   return (
     <div>

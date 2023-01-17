@@ -63,7 +63,7 @@ app.post("/uploadCoords", (req, res) => {
 
   return res.status(200).send({
     success: 'true',
-    message: 'upload successful'
+    message: 'Upload successful'
   })
 });
 
@@ -87,7 +87,7 @@ app.post("/uploadImageBase64", (req, res) => {
   });
   return res.status(200).send({
     success: 'true',
-    message: 'upload successful'
+    message: 'Upload successful base64'
   })
 });
 
